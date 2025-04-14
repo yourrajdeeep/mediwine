@@ -71,9 +71,9 @@ class AppDrawer extends StatelessWidget {
                       color: theme.primaryColor.withOpacity(0.8)),
                     title: Text(category, 
                       style: GoogleFonts.poppins(fontSize: 14)),
-                    onTap: () {
-                      controller.selectedCategory.value = category;
+                    onTap: () async {
                       Get.back();
+                      await controller.changeCategory(category);
                     },
                   ),
                 ),
