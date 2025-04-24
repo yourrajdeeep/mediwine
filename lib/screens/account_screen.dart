@@ -23,10 +23,11 @@ class AccountScreen extends StatelessWidget {
             elevation: 0,
             backgroundColor: Theme.of(context).primaryColor,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Profile', 
+              title: Text('MR Profile', 
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
               centerTitle: true,
@@ -66,14 +67,15 @@ class AccountScreen extends StatelessWidget {
                   _buildProfileHeader(),
                   const SizedBox(height: 24),
                   _buildInfoSection(context, 'Personal Information', [
-                    {'Email': 'john.doe@example.com'},
-                    {'Phone': '+1 234 567 8900'},
-                    {'Location': 'New York, USA'},
+                    {'Email': 'subhasissamanta@gmail.com'},
+                    {'Phone': '+91 9876543210'},
+                    {'Location': 'Singur, West Bengal'},
+                    {'Experience': '5 years'},
                   ]),
                   const SizedBox(height: 16),
                   _buildInfoSection(context, 'Medical Information', [
                     {'Blood Type': 'O+'},
-                    {'Height': '175 cm'},
+                    {'Height': '155 cm'},
                     {'Weight': '70 kg'},
                   ]),
                   const SizedBox(height: 24),
@@ -91,7 +93,7 @@ class AccountScreen extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'John Doe',
+          'Subashis Samanta',
           style: GoogleFonts.poppins(
             fontSize: 24,
             fontWeight: FontWeight.w600,

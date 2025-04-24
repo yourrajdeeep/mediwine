@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:get/get.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class ScheduleScreen extends StatelessWidget {
@@ -138,13 +137,13 @@ class ScheduleScreen extends StatelessWidget {
 
   final appointments = [
     Appointment(
-      doctorName: 'John Smith',
+      doctorName: 'Dr. Devi Shetty',
       date: '2024-01-20',
       time: '10:00 AM',
       location: 'City Hospital'
     ),
     Appointment(
-      doctorName: 'Sarah Johnson',
+      doctorName: 'Dr. Rajdeep Dey',
       date: '2024-01-21',
       time: '2:30 PM',
       location: 'Medical Center'

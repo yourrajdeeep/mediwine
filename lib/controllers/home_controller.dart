@@ -1,15 +1,18 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  final selectedCategory = 'Cardiovascular'.obs;
-  final doctorId = 'DOC123';
-  final isChangingCategory = false.obs;
-  
-  Future<void> changeCategory(String newCategory) async {
+  final RxInt currentIndex = 0.obs;
+  final RxString selectedCategory = 'Cardiovascular'.obs;
+  final RxBool isChangingCategory = false.obs;
+
+  void changeTab(int index) {
+    currentIndex.value = index;
+  }
+
+  Future<void> changeCategory(String category) async {
     isChangingCategory.value = true;
-    await Future.delayed(const Duration(milliseconds: 300));
-    selectedCategory.value = newCategory;
-    await Future.delayed(const Duration(milliseconds: 100));
+    selectedCategory.value = category;
+    await Future.delayed(const Duration(milliseconds: 500));
     isChangingCategory.value = false;
   }
 }

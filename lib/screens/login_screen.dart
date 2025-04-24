@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import '../routes/app_routes.dart';
+import '../widgets/custom_snackbar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,57 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
   void _handleSignIn() {
     if (_formKey.currentState?.validate() ?? false) {
       // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Container(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: const Icon(
-                    Icons.check_circle_outline,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Text(
-                  'Welcome back! Signing you in...',
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-          ).animate().slideY(
-            begin: 1,
-            end: 0,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeOut,
-          ),
-          backgroundColor: Theme.of(context).primaryColor,
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          margin: const EdgeInsets.only(
-            bottom: 16,  // Changed from MediaQuery.of(context).size.height - 120
-            left: 16,
-            right: 16,
-          ),
-          duration: const Duration(seconds: 2),
-        ),
+      CustomSnackbar.show(
+        title: 'Welcome Back',
+        message: 'Successfully signed in',
       );
-
-      // Navigate after showing message
-      Future.delayed(const Duration(seconds: 2), () {
-        Get.offAllNamed(AppRoutes.home, predicate: (route) => false);
-      });
+      Get.offAllNamed(AppRoutes.home);
     }
   }
 

@@ -23,11 +23,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: 'John Doe');
-    _emailController = TextEditingController(text: 'john.doe@example.com');
-    _phoneController = TextEditingController(text: '+1 234 567 8900');
-    _locationController = TextEditingController(text: 'New York, USA');
-    _heightController = TextEditingController(text: '175');
+    _nameController = TextEditingController(text: 'Subashis Samanta');
+    _emailController = TextEditingController(text: 'subhasissamanta@gmail.com');
+    _phoneController = TextEditingController(text: '+91 9876543210');
+    _locationController = TextEditingController(text: 'Singur, West Bengal');
+    _heightController = TextEditingController(text: '155');
     _weightController = TextEditingController(text: '70');
   }
 
@@ -66,6 +66,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
               centerTitle: true,
@@ -73,7 +74,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 fit: StackFit.expand,
                 children: [
                   Hero(
-                    tag: 'profile-photo',
+                    tag: 'profile-photo-drawer',
                     child: Image.asset(
                       'assets/images/profile.jpg',
                       fit: BoxFit.cover,

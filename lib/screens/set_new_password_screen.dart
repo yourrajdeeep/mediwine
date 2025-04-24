@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../routes/app_routes.dart';
+import '../widgets/custom_snackbar.dart';
 
 class SetNewPasswordScreen extends StatefulWidget {
   const SetNewPasswordScreen({super.key});
@@ -24,6 +25,10 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
   void _handleSubmit() {
     if (_formKey.currentState?.validate() ?? false) {
       // TODO: Implement password update logic
+      CustomSnackbar.show(
+        title: 'Password Updated',
+        message: 'Your password has been updated successfully',
+      );
       Get.offAllNamed(AppRoutes.login); // Redirect to login after success
     }
   }

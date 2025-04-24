@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import '../routes/app_routes.dart';
+import '../widgets/custom_snackbar.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -30,73 +29,11 @@ class _SignupScreenState extends State<SignupScreen> {
   void _handleSignUp() {
     if (_formKey.currentState?.validate() ?? false) {
       // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Container(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: const Icon(
-                    Icons.celebration,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Account Created Successfully!',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        'Please sign in with your credentials',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white.withOpacity(0.9),
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ).animate().slideY(
-            begin: 1,
-            end: 0,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeOut,
-          ),
-          backgroundColor: Theme.of(context).primaryColor,
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          margin: const EdgeInsets.only(
-            bottom: 16,  // Changed from MediaQuery.of(context).size.height - 120
-            left: 16,
-            right: 16,
-          ),
-          duration: const Duration(seconds: 3),
-        ),
+      CustomSnackbar.show(
+        title: 'Welcome',
+        message: 'Account created successfully',
       );
-
-      // Navigate after showing message
-      Future.delayed(const Duration(seconds: 3), () {
-        Get.offNamed(AppRoutes.login);
-      });
+      Get.offAllNamed(AppRoutes.home);
     }
   }
 
